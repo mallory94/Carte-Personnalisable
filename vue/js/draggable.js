@@ -40,7 +40,7 @@ $( function() {
     function creerMarker() {
 
         var greenIcon = L.icon({
-            iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
+            iconUrl: './vue/icones/icones-money/001-money.svg',
             shadowUrl: 'leaf-shadow.png',
         
             iconSize:     [38, 95], // size of the icon
