@@ -74,7 +74,7 @@
 </div>
 
 <div id="mapid" class="ui-widget-header droppable"></div>
-
+<button id="test" onClick="retirerDerniermarker()">Revenir en arrière</button>
 
 
 </body>

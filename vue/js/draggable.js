@@ -1,3 +1,5 @@
+var listeMarkers = [];
+
 $( function() {
     $( "#draggable" ).draggable();
   } );
@@ -49,8 +51,10 @@ $( function() {
         });
 
         // L.control.mousePosition().addTo(map);
-        L.marker([48.855599, 2.349101], { draggable : true , icon: greenIcon}).addTo(mymap);
 
+        listeMarkers.push(L.marker([48.855599, 2.349101], { draggable : true , icon: greenIcon}));
+
+        listeMarkers[listeMarkers.length-1].addTo(mymap);
     
 
     // L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
@@ -59,6 +63,8 @@ $( function() {
     // document.getElementById('longitude').value = marker.getLatLng().lng;
     
     }
+
+    
 
     // $("#mapid").click(function(){
     // var mousePosition = L.geoportalControl.MousePosition({
@@ -80,3 +86,9 @@ $( function() {
     //     // }).addTo(map);
         
 });
+
+function retirerDerniermarker(){
+    if (listeMarkers.length > 0) {
+        mymap.removeLayer(listeMarkers.pop());
+    }
+}
