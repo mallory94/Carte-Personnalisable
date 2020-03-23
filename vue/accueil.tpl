@@ -128,21 +128,17 @@
 <div id="mapid" class="ui-widget-header droppable"></div>
 <button id="test" onClick="retirerDerniermarker()">Revenir en arrière</button>
 
-<input type="submit" id="btnSauvegarderCarte" value="Sauvegarder la carte">
+<input type="button" id="btnSauvegarderCarte" value="Sauvegarder la carte">
 
 
 
 </body>
-
-
-
-
-<script src="./vue/js/carte.js"></script>
 <script src="./vue/js/menu.js"></script>
 <script src="./vue/js/alertes.js"></script>
 <script src="./vue/js/draggable.js"></script>
 <script src="./vue/js/carousel.js"></script>
 <script src="./vue/js/barre-icone.js"></script>
+<script src="./vue/js/carte.js"></script>
 
 
 

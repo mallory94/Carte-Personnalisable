@@ -170,4 +170,9 @@
 		$ListCartesPartagees = RecupCartesPartageesBD($pseudo);
 		require("./vue/MesCartes.tpl");
 	}
+	
+	function SauvegarderCarte(){
+		$Carte = $_POST['Carte'];
+		var_dump($Carte);
+	}
 ?>
