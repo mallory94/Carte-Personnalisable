@@ -173,6 +173,6 @@
 	
 	function SauvegarderCarte(){
         var_dump($_POST);
-        JSON.parse()
+        JSON.parse();
 	}
 ?>
