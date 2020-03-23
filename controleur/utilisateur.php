@@ -140,4 +140,34 @@
     }
 
     /* FIN DES FONCTIONS DE REDIRECTION */
+	
+	function MesCartes(){
+		require_once ("./modele/utilisateurBD.php");
+		$pseudo = $_SESSION['pseudo'];
+		$ListCartesPersos = RecupCartesPersosBD($pseudo);
+		$ListCartesPartagees = RecupCartesPartageesBD($pseudo);
+		require("./vue/MesCartes.tpl");
+	}
+	function ajouterCarte(){
+		require_once ("./modele/utilisateurBD.php");
+		$pseudo = $_SESSION['pseudo'];
+		$NomCarte = $_GET['Nom'];
+		ajouterCarteBD($pseudo, $NomCarte);
+		$ListCartesPersos = RecupCartesPersosBD($pseudo);
+		$ListCartesPartagees = RecupCartesPartageesBD($pseudo);
+		require("./vue/MesCartes.tpl");
+		
+	}
+	
+	function PartagerCarte(){
+		require_once ("./modele/utilisateurBD.php");
+		$pseudo = $_SESSION['pseudo'];
+		$idCarte = $_POST['idCartePartage'];
+		//echo $idCarte;
+		$pseudoDestinataire = $_POST['pseudoDest'];
+		PartagerCarteBD($pseudo, $pseudoDestinataire, $idCarte);
+		$ListCartesPersos = RecupCartesPersosBD($pseudo);
+		$ListCartesPartagees = RecupCartesPartageesBD($pseudo);
+		require("./vue/MesCartes.tpl");
+	}
 ?>
