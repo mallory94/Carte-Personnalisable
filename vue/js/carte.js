@@ -94,25 +94,41 @@ window.onload = function(){
     .openPopup();
 */
 
-	$("#btnSauvegarderCarte").click(function() {
-		console.log(listeMarkers[0]);
-        xhr = new XMLHttpRequest();
-		var variable = {
-			  latlng: listeMarkers[0]['_latlng'],
-			  iconUrl: listeMarkers[0]['_icon']['src']
-		}
-		var url = "index.php?controleur=utilisateur&action=SauvegarderCarte";
-		xhr.open("POST", url, true);
-		xhr.setRequestHeader("Content-type", "application/json");
-		xhr.onreadystatechange = function () { 
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				var json = JSON.parse(xhr.responseText);
-			}
-		}
-		//for (var i=0 ; i<listeMarkers.length ; ++i){
+	// $("#btnSauvegarderCarte").click(function() {
+  //   console.log("active la fonction");
+	// 	console.log(listeMarkers[0]);
+  //       xhr = new XMLHttpRequest();
+	// 	var variable = {
+	// 		  latlng: listeMarkers[0]['_latlng'],
+	// 		  iconUrl: listeMarkers[0]['_icon']['src']
+  //   }
+   
+	// 	var url = "http://localhost/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte";
+	// 	xhr.open("POST", url, true);
+	// 	xhr.setRequestHeader("Content-type", "application/json");
+	// 	xhr.onreadystatechange = function () { 
+	// 		if (xhr.readyState == 4 && xhr.status == 200) {
+	// 			var json = JSON.parse(xhr.responseText);
+	// 		}
+	// 	}
+	// 	//for (var i=0 ; i<listeMarkers.length ; ++i){
 			
-		var data = JSON.stringify(variable);
-		console.log(data);
-		xhr.send(data);
-	});
+	// 	var data = JSON.stringify(variable);
+	// 	console.log("data = " + data);
+	// 	xhr.send(data);
+	// });
 
+  jQuery(function($){
+    $("#btnSauvegarderCarte").click(function() {
+      console.log("active la fonction");
+      console.log(listeMarkers[0]);
+          xhr = new XMLHttpRequest();
+      var variable = {
+          latlng: listeMarkers[0]['_latlng'],
+          iconUrl: listeMarkers[0]['_icon']['src']
+      }
+      var data = JSON.stringify(variable);
+      $.redirect("http://localhost/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte", data , "POST", "_blank");
+      }
+    );
+  });

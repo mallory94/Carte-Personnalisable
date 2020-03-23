@@ -172,7 +172,7 @@
 	}
 	
 	function SauvegarderCarte(){
-		$Carte = $_POST['Carte'];
-		var_dump($Carte);
+        var_dump($_POST);
+        JSON.parse()
 	}
 ?>

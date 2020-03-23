@@ -6,6 +6,9 @@
   <!-- bootstrap import -->
   <link href='  https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./vue/css/rebootBootstrap.css" media="all">
   <!-- fin bootstrap import -->
@@ -40,6 +43,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="./plugins/leaflet-osm/leaflet-osm/leaflet-osm.js"></script>
+  <!-- plugin pour faire des redirections  -->
+  <script src="https://cdn.rawgit.com/mgalante/jquery.redirect/master/jquery.redirect.js"></script>
+  <!--  -->
 </head>
 
 
