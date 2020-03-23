@@ -1,9 +1,41 @@
 var mymap = L.map('mapid').setView([48.8534, 2.3488], 12);
 
+$( function() {
+    // var pos = L.DomEvent.getMousePosition('mouseup');
+
+    // document.getElementById("mapid").addEventListener('mouseup', function() {
+        
+    //     console.log("miracle");
+    //     console.log("position 1ere technique" + pos.toString());
+    // });
+
+    var xlng = 0.000256;
+    var xlat = 0.000200;
+
+
+    mymap.on('click', function(e) {
+        console.log(e.latlng.lat,e.latlng.lng);
+        //var c = L.circle([e.latlng.lat,e.latlng.lng], {radius: 15}).addTo(map);
+        L.polygon([
+          [e.latlng.lat-xlat,e.latlng.lng-xlng],
+          [e.latlng.lat+xlat,e.latlng.lng-xlng],
+          [e.latlng.lat-xlat,e.latlng.lng+xlng],
+          [e.latlng.lat+xlat,e.latlng.lng+xlng],
+        ]).addTo(mymap);
+        
+          L.polyline([
+          [e.latlng.lat,e.latlng.lng-xlng],
+          [e.latlng.lat,e.latlng.lng+xlng]
+        ]).addTo(mymap);
+        
+      });
+});
+
 
 window.onload = function(){
 
     
+
     new L.OSM.Mapnik().addTo(mymap);
     // new L.OSM.CycleMap({apikey: '7c460f8f625a4bdbbfc9620246420c0b'}).addTo(mymap);
     // new L.OSM.TransportMap({apikey: '7c460f8f625a4bdbbfc9620246420c0b'}).addTo(mymap);
@@ -61,4 +93,6 @@ window.onload = function(){
     .bindPopup('IUT Paris Descartes')
     .openPopup();
 */
+
+
 
