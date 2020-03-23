@@ -1,5 +1,20 @@
 <?php 
-
+	function recupIdBD($pseudo){
+		require ("./modele/connect.php");
+		$sql = 'select idUtilisateur from utilisateur where pseudo=?;';
+        try {
+            
+            $commande = $pdo->prepare($sql);
+            $commande->execute(array($pseudo));
+			return $commande->fetch(PDO::FETCH_ASSOC);
+			
+        }
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die();
+        }
+	}
+	
     function inscrireBD($infos){
         require ("./modele/connect.php");
         $sql = 'INSERT INTO utilisateur (pseudo, email, mdp) VALUES ( ? , ? , ? )';
@@ -131,6 +146,90 @@
         }
     }
     
+	function RecupCartesPersosBD($pseudo){
+		require ("./modele/connect.php");
+		$sql = "select idCarte, LabelCarte from carte as c inner join utilisateur as u on c.idUtilisateur = u.idUtilisateur where pseudo = ?";
+		try{
+            $commande = $pdo->prepare($sql);
+            $commande->execute(array($pseudo));
+			return $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die(); 
+        }
+	}
+	
+	function RecupCartesPartageesBD($pseudo){
+		require ("./modele/connect.php");
+		$sql = "select p.idCarte, LabelCarte 
+				from carte as c, partage as p, utilisateur as u
+				where c.idCarte = p.idCarte and p.idRecepteur = u.idUtilisateur and u.pseudo = ?;";
+		try{
+            $commande = $pdo->prepare($sql);
+            $commande->execute(array($pseudo));
+			return $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die(); 
+        }
+	}
+	
+	function ajouterCarteBD($pseudo, $NomCarte){
+		require ("./modele/connect.php");
+		try{
+			$idUtilisateur = recupIdBD($pseudo);
+			$enregCarte = $pdo->prepare('INSERT INTO carte(idCarte, LabelCarte, idUtilisateur) VALUES (0, :LabelCarte, :idUtilisateur)');
+			$enregCarte->bindParam(':LabelCarte', $NomCarteAjout);
+			$enregCarte->bindParam(':idUtilisateur', $id);
 
+			$NomCarteAjout = $NomCarte;
+			$id = $idUtilisateur['idUtilisateur'];
+			$enregCarte->execute();
+        }
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die(); 
+        }
+	}
+	
+	function PartagerCarteBD($pseudo, $pseudoDestinataire, $idCarte){
+		require ("./modele/connect.php");
+		//var_dump( $pseudoDestinataire);
+		try{
+			if ($pseudo == $pseudoDestinataire){
+				echo "Vous ne pouvez pas partager de carte avec vous-même";
+				return;
+			}
+			$idUtilisateur = recupIdBD($pseudo);
+			$idDestinataire = recupIdBD($pseudoDestinataire);
+			//var_dump($idUtilisateur);
+			//echo $idCarte;
+			//var_dump($idDestinataire);
+			$verifCarte = $pdo->prepare('select * from carte where idCarte=? and idUtilisateur=?');
+			
+			$verifCarte->execute(array($idCarte, $idDestinataire['idUtilisateur']));
+			$resultat = $verifCarte->fetchAll(PDO::FETCH_ASSOC);
+			if (!empty($resultat)){
+				echo "l'utilisateur possède déjà cette carte" ;
+				return;
+			}
+			
+			$enregCarte = $pdo->prepare('INSERT INTO partage(idPartage, idCarte, idEmetteur, idRecepteur) VALUES (0, :idCarte, :idEmetteur, :idRecepteur)');
+			$enregCarte->bindParam(':idCarte', $idCartePartage);
+			$enregCarte->bindParam(':idEmetteur', $idEmetteur);
+			$enregCarte->bindParam(':idRecepteur', $idRecepteur);
+
+			$idCartePartage = $idCarte;
+			$idEmetteur = $idUtilisateur['idUtilisateur'];
+			$idRecepteur = $idDestinataire['idUtilisateur'];
+			$enregCarte->execute();
+        }
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die(); 
+        }
+	}
     
 ?>

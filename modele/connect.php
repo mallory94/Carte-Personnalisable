@@ -2,7 +2,7 @@
 //Connexion à la base de donnée 
 
 	$hostname = "localhost";
-	$base="base-pwebc";
+	$base="PwebcBDD";
 	$loginBD= "root";
 	$passBD="";
 	// $passBD="";

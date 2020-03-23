@@ -52,6 +52,7 @@
       <li><a href="#">Démo</a></li>
       <li><a href="#">A propos</a></li>
       <li><a href="#">Contact</a></li>
+      <li><a href="index.php?controleur=utilisateur&action=MesCartes">Mes cartes</a></li>
       <?php if (isset($_SESSION['bConnect'])){
               if ($_SESSION['bConnect']) {
                 echo('<li><a href="index.php?controleur=utilisateur&action=accueilApresDeconnexion">Déconnexion</a></li>');
