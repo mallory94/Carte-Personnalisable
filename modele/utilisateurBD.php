@@ -263,7 +263,7 @@
     
     function nouveauMarqueurBD($LattitudeMarqueur, $LongitudeMarqueur, $iconUrl ,$idCarte){
         require ("./modele/connect.php");
-        $sql = 'INSERT INTO marqueurs (LattitudeMarqueur, LongitudeMarqueur, idCarte, iconUrl) VALUES ( ? , ? , ? , ?)';
+        $sql = 'INSERT INTO marqueurs (LattitudeMarqueur, LongitudeMarqueur, iconUrl, idCarte ) VALUES ( ? , ? , ? , ?)';
         try {
             
             $commande = $pdo->prepare($sql);
