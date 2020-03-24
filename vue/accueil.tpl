@@ -114,12 +114,11 @@
         </li>
         <li class="primary-icons">
           <i class="material-icons add-box">add</i>
-          <i class="material-icons drafts">drafts</i>
-          <i class="material-icons search">search</i>
           <i class="material-icons room">room</i>
+          <i class="material-icons undo">undo</i>
       </li>
       <li class="secondary-icons">
-         
+
         <i class="material-icons download hide-icons">file_download</i>
         <i class="material-icons trash hide-icons">delete</i>
       </li>

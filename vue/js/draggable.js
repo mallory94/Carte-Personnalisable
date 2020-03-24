@@ -58,13 +58,13 @@ $(function() {
     
 });
 
-
-
-function retirerDerniermarker(){
+var var_retirerDerniermarker = function retirerDerniermarker(){
     if (listeMarkers.length > 0) {
         mymap.removeLayer(listeMarkers.pop());
     }
 }
+
+$(".undo").on('click', var_retirerDerniermarker);
 
 
 

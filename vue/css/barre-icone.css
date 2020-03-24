@@ -6,7 +6,6 @@ ul:not(.browser-default) {
     margin-right: auto;
     height:fit-content;
     display: block;
-    overflow: auto;
   }
   .screen {
     background: #ffffff;
@@ -61,7 +60,14 @@ ul:not(.browser-default) {
   }
   .primary-icons {
     margin-right: calc(-100% + 3em);
+    z-index:1;
   }
+
+  .primary-icons>*{
+    padding-left: 1em;
+    z-index:999;
+  }
+
   .room, .add, .search, .download, .trash {
     padding-left: 1em;
     transition: all 0.5s ease;
