@@ -100,7 +100,17 @@ window.onload = function(){
         zoomOffset: -1,
         accessToken: 'pk.eyJ1Ijoic2FsdXRhbXlhbWlnbyIsImEiOiJjazZxa3hhMXcwYWFyM25xbGJvOXhtYnp3In0.3CfXpHCip_7Qj8BPrG5FVQ'
     }).addTo(mymap);
+	
+	
+	function go() {
+		  var searchCtrl = L.geoportalControl.SearchEngine({});
+		  mymap.addControl(searchCtrl);
+		}
 
+		Gp.Services.getConfig({
+		  apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
+		  onSuccess: go
+	});
 
 
 
