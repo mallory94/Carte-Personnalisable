@@ -136,7 +136,12 @@ window.onload = function(){
       //   iconUrl: listeMarkers[0]['_icon']['src']
       // }
       var jsonStringify = JSON.stringify(markersJSON);
-      $.redirect("http://localhost/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte", { jsonStringify: jsonStringify } , "POST", "_blank");
+      $.redirect("http://localhost/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte", 
+          { 
+            idMap: idMap,
+            jsonStringify: jsonStringify
+          }
+          , "POST", "_blank");
       }
     );
   });

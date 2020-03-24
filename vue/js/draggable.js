@@ -68,7 +68,6 @@ $(function() {
 
 
 
-
 function retirerDerniermarker(){
     if (listeMarkers.length > 0) {
         mymap.removeLayer(listeMarkers.pop());

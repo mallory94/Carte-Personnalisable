@@ -175,6 +175,10 @@
         $jsonStringify = $_POST['jsonStringify'];
         $datas = json_decode($jsonStringify);
         var_dump($datas);
-        for each
+        $idMap = $_POST['idMap'];
+        supprimerMarkeursSelonIdCarteBD($idMap);
+        foreach ($datas as $markeur) {
+            nouveauMarqueurBD($markeur['latlng']['lat'], $markeur['latlng']['lng'], $markeur['iconUrl'], $idMap);
+        }
 	}
 ?>
