@@ -109,9 +109,6 @@
 </header>  
 
 
-<img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
-<div id="main">cliquez moi</div>
-
 
 
 <!-- Modal -->
@@ -126,13 +123,14 @@
     <img class="icon" src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
     <img class="icon" src="https://img.icons8.com/officel/64/000000/online-store.png"/>
     <img class="icon" src="https://img.icons8.com/color/64/000000/home.png"/>
-    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
-    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
-    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <img class="icon" src="https://img.icons8.com/color/64/000000/road.png"/>
+    <img class="icon" src="https://img.icons8.com/color/64/000000/gps-searching.png"/>
+    <img class="icon" src="https://img.icons8.com/color/64/000000/user-location.png"/>
+    <img class="icon" src="https://img.icons8.com/color/64/000000/map-pin.png"/>
+    <img class="icon" src="https://img.icons8.com/color/64/000000/map-pokemon.png"/>
+    
     <div class="modal-footer">
-  
-
-      <a href="#" class="btn" id="btn_ingresar">Login</a>
+      <a href="#" id="btnValiderChoix" class="btn" id="btn_ingresar">valider le choix</a>
     </div>
   </div>
 </div>
@@ -141,17 +139,19 @@
 
 
 
-<a href="#" class="btn btn-big openmodale">Open Login Box</a>
+
 
 <div class="container">
   <div class="screen">
     <ul class="toolbar">
         <li id="toggle" class="toggle">
           <i class="material-icons arrow out">arrow_back</i>
-          <i class="material-icons menu">menu</i>
+          <i class="btn btn-big">icones</i>
+          
         </li>
-        
+
         <li class="primary-icons">
+        <img src="https://img.icons8.com/color/64/000000/home.png"/>
         <i class="material-icons save">save</i>
           <i class="material-icons room">room</i>
           <i class="material-icons undo">undo</i>
@@ -186,7 +186,7 @@
 <script src="./vue/js/carousel.js"></script>
 <script src="./vue/js/barre-icone.js"></script>
 <script src="./vue/js/carte.js"></script>
-<script src="./vue/js/reactPaletteIcone.js"></script>
+<script src="./vue/js/paletteIcone.js"></script>
 
 
 <?php

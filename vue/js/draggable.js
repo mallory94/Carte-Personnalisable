@@ -31,7 +31,6 @@ $(function() {
     });
 	console.log(idCartePartage);
 	if (idCartePartage === "non"){
-		alert("hey");
 		divMap = document.getElementById("mapid");
 		divMap.ondragover = function (e) {
 				e.preventDefault()
@@ -48,9 +47,7 @@ $(function() {
 				listeMarkers[listeMarkers.length-1].addTo(mymap);
 			}
 	}
-	else{
-		alert("yo");
-	}
+	
 
     
 

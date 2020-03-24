@@ -4,21 +4,13 @@ $(document).ready(function() {
     
 
 
-    $(".toggle").on('click', function() {
-      $.each([menu, arrow], function() {
-          this.toggleClass('out');
-      });
-      $.each([$(".download"), $(".save"), $(".trash"), $(".undo"), $(".room"),
-       $(".add-box")], function() {
-          this.toggleClass('hide-icons');
-      });
-      $(this).addClass('anim').delay(800).queue(function(next) {
-         $(this).removeClass('anim');
-          next()
-         });
+    $(".toggle").on('click', function (e) {
+            e.preventDefault();
+            $('.modale').addClass('opened');
+
     });
 
-
+    
     
   });
 

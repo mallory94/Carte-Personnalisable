@@ -6,6 +6,7 @@
     font-size: 18px;
     padding: 15px 20px;
     min-width: 100px;
+    height: auto;
   }
   .btn-close {
     color: #aaaaaa;
@@ -81,4 +82,9 @@
   }
   .modal-header h2 {
     font-size: 20px;
+  }
+
+
+  .selectionne {
+    border: 8px solid #50ff74;
   }

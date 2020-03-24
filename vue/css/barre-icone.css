@@ -59,7 +59,8 @@ ul:not(.browser-default) {
     transform-origin: center center;
   }
   .primary-icons {
-    margin-right: calc(-100% + 3em);
+    /* margin-right: calc(-100% + 3em); */
+    margin-left: auto;
     z-index:1;
   }
 
@@ -67,6 +68,8 @@ ul:not(.browser-default) {
     padding-left: 1em;
     z-index:999;
   }
+
+
 
   .room, .add, .search, .download, .trash {
     padding-left: 1em;
