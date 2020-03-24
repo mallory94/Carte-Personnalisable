@@ -163,8 +163,14 @@ if (isset($options['provenance'])) {
   
 }
 ?>
+<!--  -->
+<input type=hidden id=variableIdMap value=<?php 
+   if ( isset($_SESSION['idMap'])) {
+      echo($_SESSION['idMap']);
+   }
+   ?>
+>
 
-<input type=hidden id=variableIdMap value=<?php echo ($_SESSION['idMap'])?>>
 <input type=hidden id=tableauMarkersJsonString value=<?php echo (json_encode($ListMarqueurs))?>>
 
 </html>
