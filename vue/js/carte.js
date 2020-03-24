@@ -121,14 +121,22 @@ window.onload = function(){
   jQuery(function($){
     $("#btnSauvegarderCarte").click(function() {
       console.log("active la fonction");
-      console.log(listeMarkers[0]);
-          xhr = new XMLHttpRequest();
-      var variable = {
-          latlng: listeMarkers[0]['_latlng'],
-          iconUrl: listeMarkers[0]['_icon']['src']
+      console.log(listeMarkers);
+      var markersJSON = []
+      for ( var i = 0; i < listeMarkers.length; ++i) {
+        markersJSON.push(
+          {
+            latlng: listeMarkers[i]['_latlng'],
+            iconUrl: listeMarkers[i]['_icon']['src']
+          }
+        )
       }
-      var data = JSON.stringify(variable);
-      $.redirect("http://localhost/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte", data , "POST", "_blank");
+      // var variable = {
+      //   latlng: listeMarkers[0]['_latlng'],
+      //   iconUrl: listeMarkers[0]['_icon']['src']
+      // }
+      var jsonStringify = JSON.stringify(markersJSON);
+      $.redirect("http://localhost/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte", { jsonStringify: jsonStringify } , "POST", "_blank");
       }
     );
   });

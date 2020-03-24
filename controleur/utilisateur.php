@@ -172,7 +172,9 @@
 	}
 	
 	function SauvegarderCarte(){
-        var_dump($_POST);
-        JSON.parse();
+        $jsonStringify = $_POST['jsonStringify'];
+        $datas = json_decode($jsonStringify);
+        var_dump($datas);
+        for each
 	}
 ?>
