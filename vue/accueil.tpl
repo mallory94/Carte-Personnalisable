@@ -7,6 +7,7 @@
   <link href='  https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./vue/css/rebootBootstrap.css" media="all">
   <!-- fin bootstrap import -->
@@ -41,6 +42,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="./plugins/leaflet-osm/leaflet-osm/leaflet-osm.js"></script>
+  <!-- plugin pour faire des redirections  -->
+  <script src="https://cdn.rawgit.com/mgalante/jquery.redirect/master/jquery.redirect.js"></script>
+  <!--  -->
 </head>
 
 
@@ -109,11 +113,13 @@
           <i class="material-icons menu">menu</i>
         </li>
         <li class="primary-icons">
-          <i class="material-icons add">add</i>
+          <i class="material-icons add-box">add</i>
+          <i class="material-icons drafts">drafts</i>
           <i class="material-icons search">search</i>
           <i class="material-icons room">room</i>
       </li>
       <li class="secondary-icons">
+         
         <i class="material-icons download hide-icons">file_download</i>
         <i class="material-icons trash hide-icons">delete</i>
       </li>

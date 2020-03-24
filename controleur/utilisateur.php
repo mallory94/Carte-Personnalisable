@@ -176,6 +176,11 @@
 		$idCarte = $_POST['idCarteChoix'];
 		$ListMarqueurs = selectAttributsCarteBD($idCarte);
 		require("./vue/accueil.tpl");
+
+	function SauvegarderCarte(){
+        var_dump($_POST);
+        JSON.parse();
+
 	}
 	
 ?>
