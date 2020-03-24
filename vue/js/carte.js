@@ -102,15 +102,28 @@ window.onload = function(){
     }).addTo(mymap);
 	
 	
-	function go() {
+	function goAdress() {
 		  var searchCtrl = L.geoportalControl.SearchEngine({});
 		  mymap.addControl(searchCtrl);
 		}
 
 		Gp.Services.getConfig({
 		  apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
-		  onSuccess: go
+		  onSuccess: goAdress
 	});
+	
+	function goItinéraire() {
+    var routeCtrl = L.geoportalControl.Route({
+    });
+	mymap.addControl(routeCtrl);
+
+}
+
+	Gp.Services.getConfig({
+		apiKey : "jhyvi0fgmnuxvfv0zjzorvdn",
+		onSuccess : goItinéraire
+	}) ;
+
 
 
 
