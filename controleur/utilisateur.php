@@ -171,6 +171,12 @@
 		require("./vue/MesCartes.tpl");
 	}
 	
+	function selectAttributsCarte(){
+		require_once ("./modele/utilisateurBD.php");
+		$idCarte = $_POST['idCarteChoix'];
+		$ListMarqueurs = selectAttributsCarteBD($idCarte);
+		require("./vue/accueil.tpl");
+
 	function SauvegarderCarte(){
         $jsonStringify = $_POST['jsonStringify'];
         $datas = json_decode($jsonStringify);
@@ -181,4 +187,5 @@
             nouveauMarqueurBD($markeur['latlng']['lat'], $markeur['latlng']['lng'], $markeur['iconUrl'], $idMap);
         }
 	}
+	
 ?>

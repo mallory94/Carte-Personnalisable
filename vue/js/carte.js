@@ -94,6 +94,22 @@ window.onload = function(){
     .openPopup();
 */
 
+	$("#btnSauvegarderCarte").click(function() {
+		//console.log(listeMarkers[0]);
+        var xhr = new XMLHttpRequest();
+		xhr.open("POST", "http://localhost/tests/Projet-PWEBC/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte", true);
+
+		//Send the proper header information along with the request
+		xhr.setRequestHeader("Content-Type", "application/json");
+
+		xhr.onreadystatechange = function() { // Call a function when the state changes.
+			if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+				alert("fait");
+			}
+		}
+		xhr.send(listeMarkers[0]); 
+	});
+
 	// $("#btnSauvegarderCarte").click(function() {
   //   console.log("active la fonction");
 	// 	console.log(listeMarkers[0]);
