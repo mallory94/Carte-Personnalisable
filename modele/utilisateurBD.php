@@ -232,4 +232,33 @@
         }
 	}
     
+    function supprimerMarkeursSelonIdCarteBD($idCarte){
+        require ("./modele/connect.php");
+        $sql = 'DELETE FROM marqueurs WHERE idCarte=?';
+        try {
+            
+            $commande = $pdo->prepare($sql);
+            $bool = $commande->execute(array($idCarte));
+        }
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die();
+        }
+        return ;
+    }
+    
+    function nouveauMarqueurBD($LattitudeMarqueur, $LongitudeMarqueur, $iconUrl ,$idCarte){
+        require ("./modele/connect.php");
+        $sql = 'INSERT INTO marqueurs (LattitudeMarqueur, LongitudeMarqueur, idCarte, iconUrl) VALUES ( ? , ? , ? , ?)';
+        try {
+            
+            $commande = $pdo->prepare($sql);
+            $bool = $commande->execute(array($LattitudeMarqueur, $LongitudeMarqueur, $iconUrl, $idCarte));
+        }
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die();
+        }
+        return ;
+    }
 ?>
