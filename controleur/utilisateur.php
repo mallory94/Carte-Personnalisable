@@ -105,7 +105,9 @@
 
     function accueil(){
         require_once ("./modele/utilisateurBD.php");
-        $ListMarqueurs = selectAttributsCarteBD($_SESSION['idMap']);
+        if (isset($_SESSION['idMap'])) {
+            $ListMarqueurs = selectAttributsCarteBD($_SESSION['idMap']);
+        }
         require ("./vue/accueil.tpl");
     }
 
@@ -173,9 +175,9 @@
 	}
 	
 	function selectAttributsCarte(){
-		require_once ("./modele/utilisateurBD.php");
+        require_once ("./modele/utilisateurBD.php");
         $_SESSION['idMap'] = $_POST['idCarteChoix'];
-        $ListMarqueurs = selectAttributsCarteBD($_SESSION['idMap']);
+        header("Location:index.php");
 		require("./vue/accueil.tpl");
     }
 
