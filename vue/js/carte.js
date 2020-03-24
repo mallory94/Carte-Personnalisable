@@ -10,18 +10,24 @@ $( function() {
   idMap = document.getElementById("variableIdMap").value;
   idCartePartage = document.getElementById("cartePartageUt").value;
   console.log(idCartePartage);
-  // génération des markers
-  markersCharges = JSON.parse(document.getElementById("tableauMarkersJsonString").value);
-  console.log(markersCharges);
+  
+  if(document.getElementById("tableauMarkersJsonString").value !== "") {
+    // génération des markers
+    markersCharges = JSON.parse(document.getElementById("tableauMarkersJsonString").value);
+    console.log(markersCharges);
 
-  for (var indiceMarker = 0; indiceMarker < markersCharges.length; ++indiceMarker) {
-    marker = markersCharges[indiceMarker];
-    creerMarker(marker.LattitudeMarqueur, 
-      marker.LongitudeMarqueur ,
-      marker.iconUrl);
+    for (var indiceMarker = 0; indiceMarker < markersCharges.length; ++indiceMarker) {
+      marker = markersCharges[indiceMarker];
+      creerMarker(marker.LattitudeMarqueur, 
+        marker.LongitudeMarqueur ,
+        marker.iconUrl);
+    }
+    // fin génération des markers
   }
+ 
+  
 
-  // fin génération des markers
+
 
 
 
@@ -42,7 +48,6 @@ $( function() {
         [e.latlng.lat,e.latlng.lng-xlng],
         [e.latlng.lat,e.latlng.lng+xlng]
       ]).addTo(mymap);
-      
     });
 });
 
@@ -92,7 +97,6 @@ window.onload = function(){
 
     //   mymap.addControl(mousePosition);
 }
-
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

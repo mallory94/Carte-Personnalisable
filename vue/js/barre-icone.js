@@ -8,7 +8,7 @@ $(document).ready(function() {
       $.each([menu, arrow], function() {
           this.toggleClass('out');
       });
-      $.each([$(".download"), $(".trash"), $(".undo"), $(".room"),
+      $.each([$(".download"), $(".save"), $(".trash"), $(".undo"), $(".room"),
        $(".add-box")], function() {
           this.toggleClass('hide-icons');
       });

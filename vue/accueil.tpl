@@ -63,10 +63,11 @@
     
       <li></li>
       <li><a href="index.php">Accueil</a></li>
-      <li><a href="#">Démo</a></li>
-      <li><a href="#">A propos</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="index.php?controleur=utilisateur&action=MesCartes">Mes cartes</a></li>
+      <?php if(isset($_SESSION['bConnect'])) {
+         echo('<li><a href="index.php?controleur=utilisateur&action=MesCartes">Mes cartes</a></li>');
+         }
+         ?>
+      
       <?php if (isset($_SESSION['bConnect'])){
               if ($_SESSION['bConnect']) {
                 echo('<li><a href="index.php?controleur=utilisateur&action=accueilApresDeconnexion">Déconnexion</a></li>');
@@ -79,6 +80,8 @@
                   );
             }
   ?>
+      <li><a href="#">A propos</a></li>
+      <li><a href="#">Contact</a></li>
   </ul>
   <a href="#" id="pull">Menu</a>
 </nav>
@@ -87,6 +90,15 @@
    echo('
    <div id="msgBienvenue">BIENVENUE</div>
    <p class="intro">Vous souhaitez personnaliser votre propre carte intéractive ?<br>Vous êtes au bon endroit<br><br><br>1) Inscrivez-vous<br><br></p>');
+   }
+   else if (isset($_SESSION['idMap'])) {
+      echo('
+      <p class="intro">Vous pouvez maintenant éditer votre carte<br>Faites glisser des images sur la carte pour créer des marqueurs ou séléctionnez une icone parmi celles disponibles<br><br><br>Vous pouvez également rechercher une adresse<br><br></p>');
+   }
+   else {
+      echo('
+      <div id="msgBienvenue">OH OH...</div>
+      <p class="intro">Vous n\'avez pas créé de carte<br><br><br>Rendez vous sur la page <a class="souligne" href="index.php?controleur=utilisateur&action=MesCartes">Mes cartes</a> pour créer une carte<br><br></p>');
    }
    ?>
 
@@ -111,9 +123,9 @@
       <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
     </div>
     <div class="modal-body">
-    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
-    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
-    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <img class="icon" src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <img class="icon" src="https://img.icons8.com/officel/64/000000/online-store.png"/>
+    <img class="icon" src="https://img.icons8.com/color/64/000000/home.png"/>
     <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
     <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
     <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
@@ -140,7 +152,7 @@
         </li>
         
         <li class="primary-icons">
-          
+        <i class="material-icons save">save</i>
           <i class="material-icons room">room</i>
           <i class="material-icons undo">undo</i>
       </li>
@@ -202,7 +214,16 @@ if (isset($options['provenance'])) {
    }
    ?>
 >
-<input type=hidden id=tableauMarkersJsonString value=<?php echo (json_encode($ListMarqueurs))?>>
-<input type="hidden" id="cartePartageUt" value=<?php echo $_SESSION['pasDraggable'] ; ?>>
+<input type=hidden id=tableauMarkersJsonString value=
+<?php if (isset($ListMarqueurs)) {
+   echo(json_encode($ListMarqueurs));
 
+}?>>
+
+
+<input type="hidden" id="cartePartageUt" value=
+<?php if (isset($_SESSION['pasDraggable'])){ 
+   echo $_SESSION['pasDraggable'];
+}
+?>>
 </html>

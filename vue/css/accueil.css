@@ -25,3 +25,7 @@ header{
 .disappear{
     display: none;
 }
+
+.souligne{
+    text-decoration: underline;
+}
