@@ -2,12 +2,14 @@ var mymap = L.map('mapid').setView([48.8534, 2.3488], 12);
 
 var idMap;
 var markersCharges;
+var idCartePartage;
 
 $( function() {
 
   //récupération de l'id de la carte en utilisant une variable stockée dans une div invisible
   idMap = document.getElementById("variableIdMap").value;
-  
+  idCartePartage = document.getElementById("cartePartageUt").value;
+  console.log(idCartePartage);
   // génération des markers
   markersCharges = JSON.parse(document.getElementById("tableauMarkersJsonString").value);
   console.log(markersCharges);

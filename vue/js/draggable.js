@@ -11,7 +11,7 @@ $( function() {
 
 
 $(function() {
-
+	var idCartePartage = document.getElementById("cartePartageUt").value;
     $("#draggable").draggable({ 
         revert:  function(dropped) {
              var $draggable = $(this),
@@ -32,22 +32,28 @@ $(function() {
              }
         }
     });
-
-    divMap = document.getElementById("mapid");
-    divMap.ondragover = function (e) {
-            e.preventDefault()
-        e.dataTransfer.dropEffect = "move"
-        }
-        
-        divMap.ondrop = function (e) {
-            e.preventDefault()
-            imagePath = e.dataTransfer.getData("text/plain")
-            coordinates = mymap.containerPointToLatLng(L.point([e.clientX,e.clientY]))
-            listeMarkers.push(L.marker(coordinates, {icon: L.icon({iconUrl: imagePath, iconSize: [64, 64],
-                iconAnchor: [16,32]}),
-                draggable: true}));
-            listeMarkers[listeMarkers.length-1].addTo(mymap);
-        }
+	console.log(idCartePartage);
+	if (idCartePartage === "non"){
+		alert("hey");
+		divMap = document.getElementById("mapid");
+		divMap.ondragover = function (e) {
+				e.preventDefault()
+			e.dataTransfer.dropEffect = "move"
+			}
+			
+			divMap.ondrop = function (e) {
+				e.preventDefault()
+				imagePath = e.dataTransfer.getData("text/plain")
+				coordinates = mymap.containerPointToLatLng(L.point([e.clientX,e.clientY]))
+				listeMarkers.push(L.marker(coordinates, {icon: L.icon({iconUrl: imagePath, iconSize: [64, 64],
+					iconAnchor: [16,32]}),
+					draggable: true}));
+				listeMarkers[listeMarkers.length-1].addTo(mymap);
+			}
+	}
+	else{
+		alert("yo");
+	}
 
     
 
@@ -70,9 +76,17 @@ $(".undo").on('click', var_retirerDerniermarker);
 
 function creerMarker(lat, lng, iconUrl) {
     var latlng = L.latLng(lat, lng);
-    listeMarkers.push(L.marker(latlng, {icon: L.icon({iconUrl: iconUrl, iconSize: [64, 64],
-        iconAnchor: [16,32]}),
-        draggable: true}));
-    listeMarkers[listeMarkers.length-1].addTo(mymap);
+	if (idCartePartage === "non"){
+		listeMarkers.push(L.marker(latlng, {icon: L.icon({iconUrl: iconUrl, iconSize: [64, 64],
+			iconAnchor: [16,32]}),
+			draggable: true}));
+		listeMarkers[listeMarkers.length-1].addTo(mymap);
+	}
+	else{
+		listeMarkers.push(L.marker(latlng, {icon: L.icon({iconUrl: iconUrl, iconSize: [64, 64],
+			iconAnchor: [16,32]}),
+			draggable: false}));
+		listeMarkers[listeMarkers.length-1].addTo(mymap);
+	}
     console.log("créer un marker");
 }

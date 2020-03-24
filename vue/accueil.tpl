@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="./vue/css/GpPluginLeaflet.css" media="all">
   <link rel="stylesheet" href="./vue/css/GpPluginLeaflet-map.css" media="all">
   <link rel="stylesheet" href="./vue/css/GpPluginLeaflet-src.css" media="all">
-   <link rel="stylesheet" href="./vue/css/zoneRecherche.css" media="all">
+  <link rel="stylesheet" href="./vue/css/zoneRecherche.css" media="all">
 
   
    <!-- pour la barre d'icone -->
@@ -152,6 +152,7 @@
 <script src="./vue/js/barre-icone.js"></script>
 <script src="./vue/js/carte.js"></script>
 
+
 <?php
 if (isset($options['provenance'])) {
   switch ($options['provenance']) {
@@ -173,5 +174,6 @@ if (isset($options['provenance'])) {
 
 <input type=hidden id=variableIdMap value=<?php echo ($_SESSION['idMap'])?>>
 <input type=hidden id=tableauMarkersJsonString value=<?php echo (json_encode($ListMarqueurs))?>>
+<input type="hidden" id="cartePartageUt" value=<?php echo $_SESSION['pasDraggable'] ; ?>>
 
 </html>
