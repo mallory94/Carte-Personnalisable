@@ -47,7 +47,14 @@ nav li a {
 	border-right: 1px solid #576979;
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
+	-webkit-box-sizing: content-box;
+	width: fit-content;
+	font-size: 25px;
+}
+
+nav li:hover a {
+	color: rgb(40, 150, 224);
+	text-decoration: none;
 }
 nav li:last-child a {
 	border-right: 0;
@@ -122,4 +129,21 @@ nav a#pull {
 	nav li a {
 		border-bottom: 1px solid #576979;
 	}
+}
+
+
+#logo{
+	height:100px;
+	width:100px;
+}
+
+
+nav.clearfix {
+	height: fit-content;
+	display: flex;
+}
+
+ul.clearfix {
+    margin-top: auto;
+    margin-bottom: auto;
 }

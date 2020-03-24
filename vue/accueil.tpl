@@ -6,8 +6,7 @@
   <!-- bootstrap import -->
   <link href='  https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./vue/css/rebootBootstrap.css" media="all">
   <!-- fin bootstrap import -->
@@ -26,6 +25,7 @@
   <link rel="stylesheet" href="./vue/css/barre-icone.css" media="all">
    <!-- fin barre icone -->
    <link rel="stylesheet" href="./vue/css/menu.css" media="all">
+   <link rel="stylesheet" href="./vue/css/palette.css" media="all">
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -45,6 +45,8 @@
   <!-- plugin pour faire des redirections  -->
   <script src="https://cdn.rawgit.com/mgalante/jquery.redirect/master/jquery.redirect.js"></script>
   <!--  -->
+
+
 </head>
 
 
@@ -52,7 +54,10 @@
 <body id="body">
 <header>
   <nav class="clearfix">
+  <img id="logo" src="./vue/icones/logo.svg"/>
     <ul class="clearfix">
+    
+      <li></li>
       <li><a href="index.php">Accueil</a></li>
       <li><a href="#">Démo</a></li>
       <li><a href="#">A propos</a></li>
@@ -73,37 +78,54 @@
   </ul>
   <a href="#" id="pull">Menu</a>
 </nav>
-<div id="msgBienvenue">BIENVENUE</div>
 
-<p class="intro">Vous souhaitez personnaliser votre propre carte intéractive ?</p> 
-<p class="intro">Vous êtes au bon endroit</p> 
-
-<input type="text" id="LieuDepart" placeholder="Saisissez votre lieu de départ"/>
-<input type="text" id="LieuArrivée" placeholder="Saisissez votre lieu d'arrivée"/>
-<button id="calculIt">Calculer l'itinéraire</button>
+<?php if (!isset($_SESSION['pseudo'])) {
+   echo('
+   <div id="msgBienvenue">BIENVENUE</div>
+   <p class="intro">Vous souhaitez personnaliser votre propre carte intéractive ?<br>Vous êtes au bon endroit<br><br><br>1) Inscrivez-vous<br><br></p>');
+   }
+   ?>
 
 
 
 
 
 </header>  
-<div id="myposition"></div><br><br>
-<br>
-<br>
-<br>
-
-/* barre définisasnt la taille de l'icone */
-
-<div class="slidecontainer">
-  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-</div>
 
 
-<div id="draggable" class="ui-widget-content">
-  <p>Drag me around</p>
-</div>
 <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+<div id="main">cliquez moi</div>
 
+
+
+<!-- Modal -->
+
+<div class="modale" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h2>Sélectionnez les icones qui seront temporairement stockées dans votre barre</h2>
+      <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
+    </div>
+    <div class="modal-body">
+    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <img src="https://img.icons8.com/clouds/100/000000/cloud-network.png"/>
+    <div class="modal-footer">
+  
+
+      <a href="#" class="btn" id="btn_ingresar">Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- /Modal -->
+
+
+
+<a href="#" class="btn btn-big openmodale">Open Login Box</a>
 
 <div class="container">
   <div class="screen">
@@ -112,8 +134,9 @@
           <i class="material-icons arrow out">arrow_back</i>
           <i class="material-icons menu">menu</i>
         </li>
+        
         <li class="primary-icons">
-          <i class="material-icons add-box">add</i>
+          
           <i class="material-icons room">room</i>
           <i class="material-icons undo">undo</i>
       </li>
@@ -144,6 +167,7 @@
 <script src="./vue/js/carousel.js"></script>
 <script src="./vue/js/barre-icone.js"></script>
 <script src="./vue/js/carte.js"></script>
+<script src="./vue/js/reactPaletteIcone.js"></script>
 
 <?php
 if (isset($options['provenance'])) {
@@ -170,7 +194,6 @@ if (isset($options['provenance'])) {
    }
    ?>
 >
-
 <input type=hidden id=tableauMarkersJsonString value=<?php echo (json_encode($ListMarqueurs))?>>
 
 </html>
