@@ -1,34 +1,31 @@
 var mymap = L.map('mapid').setView([48.8534, 2.3488], 12);
 
+var idMap;
+
 $( function() {
-    // var pos = L.DomEvent.getMousePosition('mouseup');
 
-    // document.getElementById("mapid").addEventListener('mouseup', function() {
-        
-    //     console.log("miracle");
-    //     console.log("position 1ere technique" + pos.toString());
-    // });
-
-    var xlng = 0.000256;
-    var xlat = 0.000200;
+  idMap = document.getElementById("variableAPasser").value;
 
 
-    mymap.on('click', function(e) {
-        console.log(e.latlng.lat,e.latlng.lng);
-        //var c = L.circle([e.latlng.lat,e.latlng.lng], {radius: 15}).addTo(map);
-        L.polygon([
-          [e.latlng.lat-xlat,e.latlng.lng-xlng],
-          [e.latlng.lat+xlat,e.latlng.lng-xlng],
-          [e.latlng.lat-xlat,e.latlng.lng+xlng],
-          [e.latlng.lat+xlat,e.latlng.lng+xlng],
-        ]).addTo(mymap);
-        
-          L.polyline([
-          [e.latlng.lat,e.latlng.lng-xlng],
-          [e.latlng.lat,e.latlng.lng+xlng]
-        ]).addTo(mymap);
-        
-      });
+  var xlng = 0.000256;
+  var xlat = 0.000200;
+
+
+  mymap.on('click', function(e) {
+      console.log(e.latlng.lat,e.latlng.lng);
+      L.polygon([
+        [e.latlng.lat-xlat,e.latlng.lng-xlng],
+        [e.latlng.lat+xlat,e.latlng.lng-xlng],
+        [e.latlng.lat-xlat,e.latlng.lng+xlng],
+        [e.latlng.lat+xlat,e.latlng.lng+xlng],
+      ]).addTo(mymap);
+      
+        L.polyline([
+        [e.latlng.lat,e.latlng.lng-xlng],
+        [e.latlng.lat,e.latlng.lng+xlng]
+      ]).addTo(mymap);
+      
+    });
 });
 
 
@@ -89,50 +86,9 @@ window.onload = function(){
     }).addTo(mymap);
 
 
-/*L.marker([48.841788, 2.268595]).addTo(mymap)
-    .bindPopup('IUT Paris Descartes')
-    .openPopup();
-*/
 
-	$("#btnSauvegarderCarte").click(function() {
-		//console.log(listeMarkers[0]);
-        var xhr = new XMLHttpRequest();
-		xhr.open("POST", "http://localhost/tests/Projet-PWEBC/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte", true);
 
-		//Send the proper header information along with the request
-		xhr.setRequestHeader("Content-Type", "application/json");
 
-		xhr.onreadystatechange = function() { // Call a function when the state changes.
-			if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-				alert("fait");
-			}
-		}
-		xhr.send(listeMarkers[0]); 
-	});
-
-	// $("#btnSauvegarderCarte").click(function() {
-  //   console.log("active la fonction");
-	// 	console.log(listeMarkers[0]);
-  //       xhr = new XMLHttpRequest();
-	// 	var variable = {
-	// 		  latlng: listeMarkers[0]['_latlng'],
-	// 		  iconUrl: listeMarkers[0]['_icon']['src']
-  //   }
-   
-	// 	var url = "http://localhost/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte";
-	// 	xhr.open("POST", url, true);
-	// 	xhr.setRequestHeader("Content-type", "application/json");
-	// 	xhr.onreadystatechange = function () { 
-	// 		if (xhr.readyState == 4 && xhr.status == 200) {
-	// 			var json = JSON.parse(xhr.responseText);
-	// 		}
-	// 	}
-	// 	//for (var i=0 ; i<listeMarkers.length ; ++i){
-			
-	// 	var data = JSON.stringify(variable);
-	// 	console.log("data = " + data);
-	// 	xhr.send(data);
-	// });
 
   jQuery(function($){
     $("#btnSauvegarderCarte").click(function() {
@@ -147,10 +103,7 @@ window.onload = function(){
           }
         )
       }
-      // var variable = {
-      //   latlng: listeMarkers[0]['_latlng'],
-      //   iconUrl: listeMarkers[0]['_icon']['src']
-      // }
+
       var jsonStringify = JSON.stringify(markersJSON);
       $.redirect("http://localhost/Projet-PWEBC/index.php?controleur=utilisateur&action=SauvegarderCarte", 
           { 

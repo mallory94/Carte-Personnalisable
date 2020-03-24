@@ -53,7 +53,7 @@
 <header>
   <nav class="clearfix">
     <ul class="clearfix">
-      <li><a href="index.php?controleur=utilisateur&action=accueil">Accueil</a></li>
+      <li><a href="index.php">Accueil</a></li>
       <li><a href="#">Démo</a></li>
       <li><a href="#">A propos</a></li>
       <li><a href="#">Contact</a></li>
@@ -134,6 +134,7 @@
 <button id="test" onClick="retirerDerniermarker()">Revenir en arrière</button>
 
 <input type="button" id="btnSauvegarderCarte" value="Sauvegarder la carte">
+<button onclick="console.log(idMap)">Click me</button>
 
 
 
@@ -145,7 +146,9 @@
 <script src="./vue/js/barre-icone.js"></script>
 <script src="./vue/js/carte.js"></script>
 
-<?php var_dump($ListMarqueurs) ?>
+<?php var_dump($ListMarqueurs);
+      var_dump($idCarte);
+?>
 
 <?php
 if (isset($options['provenance'])) {
@@ -164,7 +167,9 @@ if (isset($options['provenance'])) {
   }
   
 }
-
-
 ?>
+
+<input type=hidden id=variableAPasser value=<?php echo ($idCarte)?>>
+
+
 </html>
