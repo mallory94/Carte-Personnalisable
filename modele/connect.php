@@ -13,7 +13,7 @@ try {
 }
 
 catch (PDOException $e) {
-	die  ("Echec de connexion : " . $e->getMessage() . "\n");
+	die  ("Echec de connexion : " . $e->getMessage() . "\n" . $e->getTrace() . "\n" );
 }
 
 ?>
