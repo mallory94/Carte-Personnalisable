@@ -100,6 +100,29 @@ window.onload = function(){
         zoomOffset: -1,
         accessToken: 'pk.eyJ1Ijoic2FsdXRhbXlhbWlnbyIsImEiOiJjazZxa3hhMXcwYWFyM25xbGJvOXhtYnp3In0.3CfXpHCip_7Qj8BPrG5FVQ'
     }).addTo(mymap);
+	
+	
+	function goAdress() {
+		  var searchCtrl = L.geoportalControl.SearchEngine({});
+		  mymap.addControl(searchCtrl);
+		}
+
+		Gp.Services.getConfig({
+		  apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
+		  onSuccess: goAdress
+	});
+	
+	function goItinéraire() {
+    var routeCtrl = L.geoportalControl.Route({
+    });
+	mymap.addControl(routeCtrl);
+
+}
+
+	Gp.Services.getConfig({
+		apiKey : "jhyvi0fgmnuxvfv0zjzorvdn",
+		onSuccess : goItinéraire
+	}) ;
 
 
 
