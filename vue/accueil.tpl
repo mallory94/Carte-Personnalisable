@@ -146,10 +146,6 @@
 <script src="./vue/js/barre-icone.js"></script>
 <script src="./vue/js/carte.js"></script>
 
-<?php var_dump($ListMarqueurs);
-      var_dump($idCarte);
-?>
-
 <?php
 if (isset($options['provenance'])) {
   switch ($options['provenance']) {
@@ -169,7 +165,7 @@ if (isset($options['provenance'])) {
 }
 ?>
 
-<input type=hidden id=variableAPasser value=<?php echo ($idCarte)?>>
-
+<input type=hidden id=variableIdMap value=<?php echo ($_SESSION['idMap'])?>>
+<input type=hidden id=tableauMarkersJsonString value=<?php echo (json_encode($ListMarqueurs))?>>
 
 </html>

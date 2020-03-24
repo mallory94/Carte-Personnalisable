@@ -1,10 +1,26 @@
 var mymap = L.map('mapid').setView([48.8534, 2.3488], 12);
 
 var idMap;
+var markersCharges;
 
 $( function() {
 
-  idMap = document.getElementById("variableAPasser").value;
+  //récupération de l'id de la carte en utilisant une variable stockée dans une div invisible
+  idMap = document.getElementById("variableIdMap").value;
+  
+  // génération des markers
+  markersCharges = JSON.parse(document.getElementById("tableauMarkersJsonString").value);
+  console.log(markersCharges);
+
+  for (var indiceMarker = 0; indiceMarker < markersCharges.length; ++indiceMarker) {
+    marker = markersCharges[indiceMarker];
+    creerMarker(marker.LattitudeMarqueur, 
+      marker.LongitudeMarqueur ,
+      marker.iconUrl);
+  }
+
+  // fin génération des markers
+
 
 
   var xlng = 0.000256;
@@ -110,7 +126,7 @@ window.onload = function(){
             idMap: idMap,
             jsonStringify: jsonStringify
           }
-          , "POST", "_blank");
+          , "POST");
       }
     );
   });

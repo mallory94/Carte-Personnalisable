@@ -49,15 +49,7 @@ $(function() {
             listeMarkers[listeMarkers.length-1].addTo(mymap);
         }
 
-    function creerMarker(coordonates, iconUrl) {
-        listeMarkers.push(L.marker(coordinates, {icon: L.icon({iconUrl: iconUrl, iconSize: [64, 64],
-            iconAnchor: [16,32]}),
-            draggable: true}));
-        listeMarkers[listeMarkers.length-1].addTo(mymap);
-        console.log("créer un marker");
-
-
-    }
+    
 
     
 
@@ -76,3 +68,11 @@ function retirerDerniermarker(){
 
 
 
+function creerMarker(lat, lng, iconUrl) {
+    var latlng = L.latLng(lat, lng);
+    listeMarkers.push(L.marker(latlng, {icon: L.icon({iconUrl: iconUrl, iconSize: [64, 64],
+        iconAnchor: [16,32]}),
+        draggable: true}));
+    listeMarkers[listeMarkers.length-1].addTo(mymap);
+    console.log("créer un marker");
+}

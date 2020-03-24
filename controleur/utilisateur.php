@@ -104,6 +104,7 @@
     /* FONCTIONS DE REDIRECTION */
 
     function accueil(){
+        $ListMarqueurs = selectAttributsCarteBD($_SESSION['idMap']);
         require ("./vue/accueil.tpl");
     }
 
@@ -172,23 +173,21 @@
 	
 	function selectAttributsCarte(){
 		require_once ("./modele/utilisateurBD.php");
-        $idCarte = $_POST['idCarteChoix'];
-        var_dump($idCarte);
-		$ListMarqueurs = selectAttributsCarteBD($idCarte);
+        $_SESSION['idMap'] = $_POST['idCarteChoix'];
+        $ListMarqueurs = selectAttributsCarteBD($_SESSION['idMap']);
 		require("./vue/accueil.tpl");
     }
 
 	function SauvegarderCarte(){
         require_once ("./modele/utilisateurBD.php");
-        var_dump($_POST);
         $jsonStringify = $_POST['jsonStringify'];
         $datas = json_decode($jsonStringify,true);
-        var_dump($datas);
         $idMap = $_POST['idMap'];
         supprimerMarkeursSelonIdCarteBD($idMap);
         foreach ($datas as $markeur) {
             nouveauMarqueurBD($markeur['latlng']['lat'], $markeur['latlng']['lng'], $markeur['iconUrl'], $idMap);
         }
+        accueil();
 	}
 	
 ?>
