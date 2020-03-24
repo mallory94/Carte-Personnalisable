@@ -6,6 +6,7 @@
   <!-- bootstrap import -->
   <link href='  https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./vue/css/rebootBootstrap.css" media="all">
   <!-- fin bootstrap import -->
@@ -138,7 +139,7 @@
 <script src="./vue/js/barre-icone.js"></script>
 <script src="./vue/js/carte.js"></script>
 
-
+<?php var_dump($ListMarqueurs) ?>
 
 <?php
 if (isset($options['provenance'])) {

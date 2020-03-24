@@ -171,8 +171,11 @@
 		require("./vue/MesCartes.tpl");
 	}
 	
-	function SauvegarderCarte(){
-		$Carte = $_POST['Carte'];
-		var_dump($Carte);
+	function selectAttributsCarte(){
+		require_once ("./modele/utilisateurBD.php");
+		$idCarte = $_POST['idCarteChoix'];
+		$ListMarqueurs = selectAttributsCarteBD($idCarte);
+		require("./vue/accueil.tpl");
 	}
+	
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 23 mars 2020 à 18:52
+-- Généré le :  mar. 24 mars 2020 à 00:52
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -76,10 +76,11 @@ INSERT INTO `layer` (`idLayer`, `LabelLayer`, `idCarte`) VALUES
 DROP TABLE IF EXISTS `marqueurs`;
 CREATE TABLE IF NOT EXISTS `marqueurs` (
   `idMarqueur` int(11) NOT NULL AUTO_INCREMENT,
-  `LabelMarqueur` varchar(100) NOT NULL,
+  `LabelMarqueur` varchar(100) DEFAULT NULL,
   `LattitudeMarqueur` double NOT NULL,
   `LongitudeMarqueur` double NOT NULL,
   `idCarte` int(11) NOT NULL,
+  `iconUrl` varchar(100) NOT NULL,
   PRIMARY KEY (`idMarqueur`),
   KEY `FK_IdCarteMarqueurs` (`idCarte`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -88,8 +89,8 @@ CREATE TABLE IF NOT EXISTS `marqueurs` (
 -- Déchargement des données de la table `marqueurs`
 --
 
-INSERT INTO `marqueurs` (`idMarqueur`, `LabelMarqueur`, `LattitudeMarqueur`, `LongitudeMarqueur`, `idCarte`) VALUES
-(1, 'CentreParis', 48.855599, 2.349101, 1);
+INSERT INTO `marqueurs` (`idMarqueur`, `LabelMarqueur`, `LattitudeMarqueur`, `LongitudeMarqueur`, `idCarte`, `iconUrl`) VALUES
+(1, 'CentreParis', 48.855599, 2.349101, 1, '');
 
 -- --------------------------------------------------------
 

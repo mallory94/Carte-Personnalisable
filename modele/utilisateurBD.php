@@ -231,5 +231,19 @@
             die(); 
         }
 	}
+	
+	function selectAttributsCarteBD($idCarte){
+		require ("./modele/connect.php");
+		try{
+			$Marqueurs = $pdo->prepare("select LattitudeMarqueur, LongitudeMarqueur, iconUrl from marqueurs where idCarte=?");
+			$Marqueurs->execute(array($idCarte));
+			$res = $Marqueurs->fetchAll(PDO::FETCH_ASSOC);
+			return $res;
+		}
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die(); 
+        }
+	}
     
 ?>

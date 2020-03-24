@@ -15,7 +15,11 @@
 		<h1>Mes Cartes personnelles</h1>
 		<?php 
 			foreach($ListCartesPersos as $var){?>
-				<div draggable="true" ondragstart="drag(event, this.value)" id=<?php echo $var['idCarte'] ?>><?php echo $var['LabelCarte'] ?></div>
+			<div draggable="true" ondragstart="drag(event, this.value)" id=<?php echo $var['idCarte'] ?>><?php echo $var['LabelCarte'] ?></div>
+			<form action="index.php?controleur=utilisateur&action=selectAttributsCarte" method="post">
+				<input type="hidden" name="idCarteChoix" value=<?php echo $var['idCarte']?>>
+				<input type="submit" value="afficherCarte">
+			</form>
 			<?php
 			}
 		?>
@@ -30,6 +34,10 @@
 		<?php 
 			foreach($ListCartesPartagees as $var){?>
 				<div draggable="true" ondragstart="drag(event, this.value)" id=<?php echo $var['idCarte'] ?>><?php echo $var['LabelCarte'] ?></div>
+				<form action="index.php?controleur=utilisateur&action=selectAttributsCarte" method="post">
+					<input type="hidden" name="idCarteChoix" value=<?php echo $var['idCarte'] ?>>
+					<input type="submit" value="afficherCarte">
+				</form>
 			<?php
 			}
 		?>
