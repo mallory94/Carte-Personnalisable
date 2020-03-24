@@ -1,5 +1,4 @@
 var mymap = L.map('mapid').setView([48.8534, 2.3488], 12);
-
 var idMap;
 var markersCharges;
 
@@ -101,8 +100,8 @@ window.onload = function(){
         accessToken: 'pk.eyJ1Ijoic2FsdXRhbXlhbWlnbyIsImEiOiJjazZxa3hhMXcwYWFyM25xbGJvOXhtYnp3In0.3CfXpHCip_7Qj8BPrG5FVQ'
     }).addTo(mymap);
 
-
-
+	var searchControl = L.esri.Geocoding.geosearch().addTo(mymap);
+	var results = L.layerGroup().addTo(mymap);
 
 
 
