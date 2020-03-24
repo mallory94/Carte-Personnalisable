@@ -104,6 +104,7 @@
     /* FONCTIONS DE REDIRECTION */
 
     function accueil(){
+        require_once ("./modele/utilisateurBD.php");
         $ListMarqueurs = selectAttributsCarteBD($_SESSION['idMap']);
         require ("./vue/accueil.tpl");
     }
