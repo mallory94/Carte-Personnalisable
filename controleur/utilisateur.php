@@ -105,7 +105,6 @@
 
     function accueil(){
         require ("./vue/accueil.tpl");
-        
     }
 
     function accueilApresInscription(){
@@ -147,7 +146,8 @@
 		$ListCartesPersos = RecupCartesPersosBD($pseudo);
 		$ListCartesPartagees = RecupCartesPartageesBD($pseudo);
 		require("./vue/MesCartes.tpl");
-	}
+    }
+    
 	function ajouterCarte(){
 		require_once ("./modele/utilisateurBD.php");
 		$pseudo = $_SESSION['pseudo'];
@@ -156,7 +156,6 @@
 		$ListCartesPersos = RecupCartesPersosBD($pseudo);
 		$ListCartesPartagees = RecupCartesPartageesBD($pseudo);
 		require("./vue/MesCartes.tpl");
-		
 	}
 	
 	function PartagerCarte(){
@@ -173,13 +172,17 @@
 	
 	function selectAttributsCarte(){
 		require_once ("./modele/utilisateurBD.php");
-		$idCarte = $_POST['idCarteChoix'];
+        $idCarte = $_POST['idCarteChoix'];
+        var_dump($idCarte);
 		$ListMarqueurs = selectAttributsCarteBD($idCarte);
 		require("./vue/accueil.tpl");
+    }
 
 	function SauvegarderCarte(){
+        require_once ("./modele/utilisateurBD.php");
+        var_dump($_POST);
         $jsonStringify = $_POST['jsonStringify'];
-        $datas = json_decode($jsonStringify);
+        $datas = json_decode($jsonStringify,true);
         var_dump($datas);
         $idMap = $_POST['idMap'];
         supprimerMarkeursSelonIdCarteBD($idMap);
