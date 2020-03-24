@@ -177,7 +177,12 @@
 	function selectAttributsCarte(){
         require_once ("./modele/utilisateurBD.php");
         $_SESSION['idMap'] = $_POST['idCarteChoix'];
-        header("Location:index.php");
+		if (estCartePartageeBD($_SESSION['idMap'], $_SESSION['pseudo']))
+			$_SESSION['pasDraggable'] = "oui";
+		else
+			$_SESSION['pasDraggable'] = "non";
+		var_dump($_SESSION['pasDraggable']);
+		header("Location:index.php");
 		require("./vue/accueil.tpl");
     }
 

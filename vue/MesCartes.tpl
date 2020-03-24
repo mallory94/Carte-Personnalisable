@@ -2,9 +2,10 @@
 <html>
 
 <head>
-<title>Mes Cartes</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Mes Cartes</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./vue/css/mes_cartes.css">
 </head>
 
 <body>
@@ -15,15 +16,16 @@
 		<h1>Mes Cartes personnelles</h1>
 		<?php 
 			foreach($ListCartesPersos as $var){?>
-			<div draggable="true" ondragstart="drag(event, this.value)" id=<?php echo $var['idCarte'] ?>><?php echo $var['LabelCarte'] ?></div>
-			<form action="index.php?controleur=utilisateur&action=selectAttributsCarte" method="post">
+			<div draggable="true" ondragstart="drag(event, this.value)" class="transport_nomCarte" id=<?php echo $var['idCarte'] ?>><?php echo $var['LabelCarte'] ?></div>
+			<form action="index.php?controleur=utilisateur&action=selectAttributsCarte" method="post" id="afficher_la_carte">
 				<input type="hidden" name="idCarteChoix" value=<?php echo $var['idCarte']?>>
-				<input type="submit" value="afficherCarte">
+				<input id="afficherCarte" type="submit" value="afficher la carte">
 			</form>
 			<?php
 			}
 		?>
-		<input type=button value="ajouter une carte" id="ajouterCarte" onclick="afficherformAjout()">
+
+		<input  id="btn_ajouter_carte" type=button value="ajouter une carte" id="ajouterCarte" onclick="afficherformAjout()">
 		<form style="display:none;" action="index.php?controleur=utilisateur&action=ajouterCarte&Nom=NomCarte" method="post" id="formAjout">
 			<input type="text" placeholder="entrez le nom de la carte">
 			<input type="submit" value="soumettre">
@@ -33,10 +35,10 @@
 		<h1>Cartes Partagées avec moi</h1>
 		<?php 
 			foreach($ListCartesPartagees as $var){?>
-				<div draggable="true" ondragstart="drag(event, this.value)" id=<?php echo $var['idCarte'] ?>><?php echo $var['LabelCarte'] ?></div>
+				<div draggable="true"  ondragstart="drag(event, this.value)" id=<?php echo $var['idCarte'] ?>><?php echo $var['LabelCarte'] ?></div>
 				<form action="index.php?controleur=utilisateur&action=selectAttributsCarte" method="post">
 					<input type="hidden" name="idCarteChoix" value=<?php echo $var['idCarte'] ?>>
-					<input type="submit" value="afficherCarte">
+					<input id="afficherCarte" type="submit" value="afficher la carte">
 				</form>
 			<?php
 			}
@@ -53,15 +55,15 @@
 		</div>
 		<form action="index.php?controleur=utilisateur&action=PartagerCarte" method="post" id="formPartage">
 			<input type="hidden" id="CarteChoisie" name="idCartePartage">
-			<input type="text" name="pseudoDest" placeholder="entrez le pseudo du destinataire">
-			<input type="button" value="valider" onclick="ExisteCarteDrag(this)">
+			<input id="entrez_pseudo" type="text" name="pseudoDest" placeholder="entrez le pseudo du destinataire">
+			<input id="valider" type="button" value="valider" onclick="ExisteCarteDrag(this)">
 			<input id="Envoyer" style="display:none" type="submit" value="soumettre">
 		</form>
 	</div>
 </body>
 </html>
 
-
+<!-- JAVA SCRIPT -->
 <script>
 	function afficherformAjout(){
 		document.getElementById("formAjout").style.display = "block";

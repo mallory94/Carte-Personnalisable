@@ -1,0 +1,68 @@
+body{
+	font-family: 'PT Sans', Arial, sans-serif;
+	margin: 0px  auto;
+	width: 100%;
+	background-color: #3f51b5;
+}
+#Header h1{
+	text-align: center;
+	margin: 0;
+	color: white;
+}
+
+#Header{
+	background: #455868;	
+	position: relative;
+    width: 100%;
+   
+}
+
+#CartesPersos h1, #CartesPartagees h1, #Partage h1 {
+	font-size: 20px;
+	text-align: center;
+	color: white;
+}
+
+#CartesPersos , #CartesPartagees , #Partage {
+	text-align: center;
+	padding: 40px;
+}
+
+input#afficherCarte, input#btn_ajouter_carte,input#valider{
+	background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 7px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input#afficherCarte:hover, input#btn_ajouter_carte:hover,input#valider:hover{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input#entrez_pseudo{
+	padding: 7px 100px;
+	width: 189px;
+}
+
+.transport_nomCarte{
+	padding: 5px;
+	color: white;
+}
+
+#afficher_la_carte{
+	padding: 10px;
+	color: white;
+
+}
+
+#droppable {
+    margin-left: auto;
+    margin-right: auto;
+}
+

@@ -275,4 +275,22 @@
         }
         return ;
     }
+	
+	function estCartePartageeBD($idCarte, $pseudo){
+	require ("./modele/connect.php");
+		try {
+			$idUtilisateur = recupIdBD($pseudo);
+			var_dump($idUtilisateur);
+			var_dump($idCarte);
+            $sql = 'select idCarte from partage where idCarte=? and idRecepteur=?';
+            $commande = $pdo->prepare($sql);
+            $commande->execute(array($idCarte, $idUtilisateur['idUtilisateur']));
+			$res = $commande->fetchAll(PDO::FETCH_ASSOC);
+			return count($res) !== 0;
+        }
+        catch (PDOException $e) {
+            echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+            die();
+        }
+	}
 ?>
