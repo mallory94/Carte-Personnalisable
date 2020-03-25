@@ -89,16 +89,34 @@
 <?php if (!isset($_SESSION['pseudo'])) {
    echo('
    <div id="msgBienvenue">BIENVENUE</div>
-   <p class="intro">Vous souhaitez personnaliser votre propre carte intéractive ?<br>Vous êtes au bon endroit<br><br><br>1) Inscrivez-vous<br><br></p>');
+   <p class="intro">Vous souhaitez personnaliser votre propre carte intéractive ?<br>Vous êtes au bon endroit.<br><br><br>Inscrivez-vous si vous n\'avez pas encore de compte.<br>(la connexion sera automatique)<br><br>Une fois connecté(e) , vous pourrez éditer votre carte.</p>');
    }
    else if (isset($_SESSION['idMap'])) {
       echo('
-      <p class="intro">Vous pouvez maintenant éditer votre carte<br>Faites glisser des images sur la carte pour créer des marqueurs ou séléctionnez une icone parmi celles disponibles<br><br><br>Vous pouvez également rechercher une adresse<br><br></p>');
+      <p class="intro">Vous pouvez maintenant <a class="souligne" href="#barre-icone">éditer votre carte</a><br>Faites glisser des images sur la carte pour créer des marqueurs ou séléctionnez une icone parmi celles disponibles</p><br>
+      <p class="intro"><br><br>- importer des icones/images/gif depuis internet -<br><br></p>
+      <div class="tutoGif"><img  src="https://i.imgur.com/dKl1I9K.gif"/>
+         </div><br><br><br>
+         <p class="intro"><br><br>- choisir les icônes qui apparaissent dans la barre d\'outils -<br><br></p>
+      <div class="tutoGif"><img  src="https://i.imgur.com/K2saPnF.gif"/>
+         </div><br><br><br>
+         <p class="intro"><br><br>- Supprimer le dernier marqueur placé -<br><br></p>
+      <div class="tutoGif"><img  src="https://i.imgur.com/Q4cfyEw.gif"/></div>
+         <br><br>
+         <br><p class="intro">- Rechercher une adresse -<br>(Attention, le marqueur généré après la recherche ne sera pas sauvegardé)<br></p>
+         <div class="tutoGif"><blockquote class="imgur-embed-pub" lang="en" data-id="u6vcKR4"><a href="//imgur.com/u6vcKR4">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></div
+         <br><br>
+         <p class="intro"><br><br>- Déterminer un itinéraire -<br><br></p>
+         <br><br>
+         <div class="tutoGif"><img  src="https://i.imgur.com/HV7WcKG.png"/>
+         </div>
+         <br><br><br><br>
+         ');
    }
    else {
       echo('
       <div id="msgBienvenue">OH OH...</div>
-      <p class="intro">Vous n\'avez pas créé de carte<br><br><br>Rendez vous sur la page <a class="souligne" href="index.php?controleur=utilisateur&action=MesCartes">Mes cartes</a> pour créer une carte<br><br></p>');
+      <p class="intro">Vous n\'avez pas sélectionné de carte.<br><br><br>Rendez vous sur la page <a class="souligne" href="index.php?controleur=utilisateur&action=MesCartes">Mes cartes</a> pour créer ou sélectionner une carte<br><br></p>');
    }
    ?>
 
@@ -116,7 +134,7 @@
 <div class="modale" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Sélectionnez les icones qui seront temporairement stockées dans votre barre</h2>
+      <h2>Sélectionnez une icone qui sera temporairement stockée dans votre barre</h2>
       <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
     </div>
     <div class="modal-body">
@@ -141,20 +159,22 @@
 
 
 
-<div class="container">
+<div id="barre-icone" class="container">
   <div class="screen">
     <ul class="toolbar">
         <li id="toggle" class="toggle">
           <i class="material-icons arrow out">arrow_back</i>
           <i class="btn btn-big">icones</i>
           
+          
         </li>
-
+        <?php if ( isset($_SESSION['idMap'])) {
+         echo('<i id="btnSauvegarder" class="btn btn-big">sauvegarder la carte</i>');
+        }
+        ?>
         <li class="primary-icons">
         <img src="https://img.icons8.com/color/64/000000/home.png"/>
-        <i class="material-icons save">save</i>
-          <i class="material-icons room">room</i>
-          <i class="material-icons undo">undo</i>
+          <i class="material-icons undo" title="supprimer le dernier marqueur placé" >undo</i>
       </li>
       <li class="secondary-icons">
 
@@ -169,10 +189,7 @@
 
 
 <div id="mapid" class="ui-widget-header droppable"></div>
-<button id="test" onClick="retirerDerniermarker()">Revenir en arrière</button>
 
-<input type="button" id="btnSauvegarderCarte" value="Sauvegarder la carte">
-<button onclick="console.log(idMap)">Click me</button>
 
 
 

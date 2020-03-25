@@ -30,25 +30,6 @@ $( function() {
 
 
 
-
-  var xlng = 0.000256;
-  var xlat = 0.000200;
-
-
-  mymap.on('click', function(e) {
-      console.log(e.latlng.lat,e.latlng.lng);
-      L.polygon([
-        [e.latlng.lat-xlat,e.latlng.lng-xlng],
-        [e.latlng.lat+xlat,e.latlng.lng-xlng],
-        [e.latlng.lat-xlat,e.latlng.lng+xlng],
-        [e.latlng.lat+xlat,e.latlng.lng+xlng],
-      ]).addTo(mymap);
-      
-        L.polyline([
-        [e.latlng.lat,e.latlng.lng-xlng],
-        [e.latlng.lat,e.latlng.lng+xlng]
-      ]).addTo(mymap);
-    });
 });
 
 
@@ -136,7 +117,7 @@ window.onload = function(){
 
 
   jQuery(function($){
-    $("#btnSauvegarderCarte").click(function() {
+    $("#btnSauvegarder").click(function() {
       console.log("active la fonction");
       console.log(listeMarkers);
       var markersJSON = []

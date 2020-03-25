@@ -29,3 +29,10 @@ header{
 .souligne{
     text-decoration: underline;
 }
+
+
+.tutoGif{
+    margin-left:auto;
+    margin-right:auto;
+    width: fit-content;
+}

@@ -109,12 +109,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   
   /*-- end reset --*/
   body {
-    background: #76b852;
+    background: #3f51b5;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #3f51b5, #6900ff);
-    background: -moz-linear-gradient(to top, #3f51b5, #6900ff);
-    background: -o-linear-gradient(to top, #3f51b5, #6900ff);
-    background: linear-gradient(to top, #3f51b5, #6900ff);
+    background: -webkit-linear-gradient(to top, #3f51b5, #3f41b5);
+    background: -moz-linear-gradient(to top, #3f51b5, #3f41b5);
+    background: -o-linear-gradient(to top, #3f51b5, #3f41b5);
+    background: linear-gradient(to top, #3f51b5, #3f41b5);
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
@@ -209,9 +209,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   input[type="submit"] {
     font-size: .9em;
     color: #fff;
-    background: #76b852;
+    background: #2bbbad;
     outline: none;
-    border: 1px solid #76b852;
+    border: 1px solid #196e66;
     cursor: pointer;
     padding: 0.9em;
     -webkit-appearance: none;
@@ -226,7 +226,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     -o-transition: .5s all;
     -ms-transition: .5s all;
     transition: .5s all;
-    background: #8DC26F;
+    background: #196e66;
   }
   
   .agileits-top p {
@@ -260,7 +260,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   }
   
   input.checkbox {
-    background: #8DC26F;
+    background: #196e66;
     cursor: pointer;
     width: 1.2em;
     height: 1.2em;
