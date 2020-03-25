@@ -24,7 +24,7 @@
 			<?php
 			}
 		?>
-
+		<br><br>___________________<br><br>
 		<input  id="btn_ajouter_carte" type=button value="ajouter une carte" id="ajouterCarte" onclick="afficherformAjout()">
 		<form style="display:none;" action="index.php?controleur=utilisateur&action=ajouterCarte&Nom=NomCarte" method="post" id="formAjout">
 			<input type="text" placeholder="entrez le nom de la carte">
@@ -53,6 +53,7 @@
 									 border-color:black;" ondrop="drop(event)" ondragover="allowDrop(event)">
 			<p>Glissez une carte de votre choix pour la partager</p>
 		</div>
+		<br><br>
 		<form action="index.php?controleur=utilisateur&action=PartagerCarte" method="post" id="formPartage">
 			<input type="hidden" id="CarteChoisie" name="idCartePartage">
 			<input id="entrez_pseudo" type="text" name="pseudoDest" placeholder="entrez le pseudo du destinataire">

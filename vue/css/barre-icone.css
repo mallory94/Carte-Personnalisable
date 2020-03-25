@@ -102,3 +102,8 @@ ul:not(.browser-default) {
     width: 100%;
     padding : 0%;
 }
+
+
+#btnSauvegarder{
+  margin-left:20px;
+}

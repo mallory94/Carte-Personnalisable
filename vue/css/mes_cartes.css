@@ -29,7 +29,7 @@ body{
 }
 
 input#afficherCarte, input#btn_ajouter_carte,input#valider{
-	background-color: #4CAF50;
+	background-color: #2bbbad;
   border: none;
   color: white;
   padding: 7px 16px;

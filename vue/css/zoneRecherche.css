@@ -1,3 +1,21 @@
 input[type=text]{
 	background-color: white;
 }
+
+.GPflexInput>input {
+    border: 1px solid #000000;
+}
+
+.GPshowAdvancedToolOpen {
+	background-color: white;
+}
+
+.GPshowAdvancedToolPicto {
+	background-color: transparent;
+	border-radius: none;
+	background-color: white;
+	border-bottom-left-radius:0px;
+	border-bottom-right-radius:0px;
+	border-top-left-radius:0px;
+	border-top-right-radius:0px;
+}

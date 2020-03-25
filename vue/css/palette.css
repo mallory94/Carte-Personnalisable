@@ -84,7 +84,11 @@
     font-size: 20px;
   }
 
-
   .selectionne {
     border: 8px solid #50ff74;
   }
+
+  .modal-footer {
+    text-align: center;
+  }
+
