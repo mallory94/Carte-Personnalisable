@@ -143,6 +143,7 @@ nav a#pull {
 
 nav.clearfix {
 	height: fit-content;
+	height: -moz-fit-content;
 	display: flex;
 }
 
