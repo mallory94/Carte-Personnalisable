@@ -26,8 +26,8 @@
 		?>
 		<br><br>___________________<br><br>
 		<input  id="btn_ajouter_carte" type=button value="ajouter une carte" id="ajouterCarte" onclick="afficherformAjout()">
-		<form style="display:none;" action="index.php?controleur=utilisateur&action=ajouterCarte&Nom=NomCarte" method="post" id="formAjout">
-			<input type="text" placeholder="entrez le nom de la carte">
+		<form style="display:none;" action="index.php?controleur=utilisateur&action=ajouterCarte" method="post" id="formAjout">
+			<input type="text" name="Nom" placeholder="entrez le nom de la carte">
 			<input type="submit" value="soumettre">
 		</form>
 	</div>

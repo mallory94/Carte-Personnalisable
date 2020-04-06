@@ -153,9 +153,11 @@
     }
     
 	function ajouterCarte(){
-		require_once ("./modele/utilisateurBD.php");
+        require_once ("./modele/utilisateurBD.php");
+        
 		$pseudo = $_SESSION['pseudo'];
-		$NomCarte = $_GET['Nom'];
+        $NomCarte = $_POST['Nom'];
+
 		ajouterCarteBD($pseudo, $NomCarte);
 		$ListCartesPersos = RecupCartesPersosBD($pseudo);
 		$ListCartesPartagees = RecupCartesPartageesBD($pseudo);
