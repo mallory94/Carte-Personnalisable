@@ -146,7 +146,7 @@
     <img class="icon" src="https://img.icons8.com/color/64/000000/user-location.png"/>
     <img class="icon" src="https://img.icons8.com/color/64/000000/map-pin.png"/>
     <img class="icon" src="https://img.icons8.com/color/64/000000/map-pokemon.png"/>
-    
+    <img class="icon" src="https://i.imgur.com/Y5IbOU4.png"/>
     <div class="modal-footer">
       <a href="#" id="btnValiderChoix" class="btn" id="btn_ingresar">valider le choix</a>
     </div>
